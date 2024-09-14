@@ -1,0 +1,54 @@
+.place-order{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px;
+    gap: 60px;
+}
+
+.left{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.left input{
+    padding: 10px 10px;
+    font-size: 15px;
+    width: 100%;
+    border-radius:6px;
+    outline: tomato;
+    border: 1px solid tomato;
+}
+
+.multi-div{
+    display: flex;
+    gap: 10px;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+}
+
+.item-total{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(77, 75, 75);
+    
+}
+
+.right button{
+    background-color: tomato;
+    padding: 10px 0px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    width: 60%;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}

@@ -1,0 +1,99 @@
+.Cart{
+    margin: 80px 0;
+    color: gray;
+    
+}
+
+.cart-title{
+    display: flex;
+    gap: 90px;
+    align-items: center;
+    
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+}
+.cart-item{
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    margin: 10px 0;
+    font-size: max(1vw,12px);
+}
+.cart-item img{
+    width: 50px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    align-items: center;
+    color: black;
+    width: 100%;
+    gap: 40px;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+}
+
+.item-total{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(77, 75, 75);
+    
+}
+
+.left button{
+    background-color: tomato;
+    padding: 10px 0px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    width: 60%;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: gray;
+}
+
+.right p{
+    font: 15px;
+    font-weight: 500;
+}
+.remove{
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.input-item input,.input-item button{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: rgb(192, 178, 178);
+}
+
+.input-item button{
+    color: white;
+    background-color: black;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 10px 30px;
+
+}
+
+@media (max-width:750px){
+    .container{
+        flex-direction: column-reverse;
+    }
+
+}
+

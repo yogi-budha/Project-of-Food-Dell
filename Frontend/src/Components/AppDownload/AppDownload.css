@@ -1,0 +1,25 @@
+.AppDownload{
+    margin: auto auto;
+    margin-top:80px ;
+    text-align: center;
+    font-size: max(3vw,20px);
+    font-weight: 500;
+}
+
+.download-icon{
+    display: flex;
+    justify-content: center;
+    gap: max(2vw,10px);
+    margin: 40px;
+}
+
+.download-icon img{
+    width: max(30vw,120px);
+    max-width: 180px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.download-icon img:hover{
+    transform: scale(1.05);
+}
+
