@@ -4,7 +4,7 @@ import cartMidleware from '../middleware/cartMiddleware.js';
 
 const placeOrderRoutes = express.Router()
 
-placeOrderRoutes.post("/place",placeOrdercontroller)
+placeOrderRoutes.post("/place",cartMidleware,placeOrdercontroller)
 .post("/verify",verifyOrder)
 .post("/userorders",cartMidleware,userOrders)
 

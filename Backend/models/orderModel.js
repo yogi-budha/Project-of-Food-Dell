@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 
 const OrderSchema = new mongoose.Schema({
     userId:{
-        type:String,
+      type:String,
+      required:true
     },
     amount:{
         type:Number,
@@ -28,6 +29,6 @@ const OrderSchema = new mongoose.Schema({
         type:Boolean,
         default:false
     }
-})
+},{minimize:false})
 
 export const placeOrderModel = mongoose.model("placeOrderModel",OrderSchema)

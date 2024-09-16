@@ -12,7 +12,7 @@ const placeOrdercontroller = async (req,res)=>{
         const {userId,amount,address,items,status} =  req.body
         
         const newplaceOrder = new placeOrderModel({
-            userId,amount,address,items,
+            userId,amount,address,items,status
         })
 
         await newplaceOrder.save()
@@ -25,9 +25,9 @@ const placeOrdercontroller = async (req,res)=>{
                 product_data:{
                     name:item.name
                 },
-                unit_amount : item.price 
+                unit_amount : item.price *100
             },
-            quantity:item.quantity
+            quantity:item.quantity * 100
         }))
 
         line_items.push({
@@ -36,7 +36,7 @@ const placeOrdercontroller = async (req,res)=>{
                 product_data:{
                     name:'Delivery Charges'
                 },
-                unit_amount:2
+                unit_amount: 2 * 100
             },
             quantity:1
         })
@@ -67,10 +67,10 @@ const verifyOrder = async (req,res)=>{
     try {
         
         if(success == 'true'){
-            await orderModel.findByIdAndUpdate(orderId,{payment:true})
+            await placeOrderModel.findByIdAndUpdate(orderId,{payment:true})
             res.json({success:true,message:"paid"})
         }else{
-            await orderModel.findByIdAndDelete(orderId)
+            await placeOrderModel.findByIdAndDelete(orderId)
             res.json({success:false,message:"Not Paid"})
         }
     } catch (error) {
@@ -84,11 +84,13 @@ const verifyOrder = async (req,res)=>{
 
 const userOrders = async (req,res)=>{
 
+    
+
     try {
         
-        const orders = await orderModel.find({userId:req.body.userId})
+        const orders = await placeOrderModel.find({userId:req.body.userId})
 
-        res.json({success:true,data:orders})
+        res.json({success:true,orders})
     } catch (error) {
 
         console.log(error)

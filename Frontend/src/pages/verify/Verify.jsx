@@ -12,13 +12,15 @@ function Verify() {
     const success = searchParams.get('success')
     const orderId = searchParams.get('orderId')
 
-    const {url} = useContext(StoreContext)
+    const {mainurl,token} = useContext(StoreContext)
+
 
     const navigate = useNavigate();
 
     const verifyPayment = async ()=>{
-        const response = await axios.post(url+'/api/order/verify',{success,orderId})
-        if(response.data.success)
+        const response = await axios.post(`${mainurl}/api/order/verify`,{success,orderId},{headers:{token:token}})
+        console.log(response.data)
+        if(success == 'true')
         {
             navigate('/myorders')
         }else{
@@ -27,12 +29,15 @@ function Verify() {
     }
 
     useEffect(()=>{
-        verifyPayment()
-    })
+        if(token){
+
+            verifyPayment()
+        }
+    },[token])
   return (
     <div >
 
-        <Popup/>
+  
     </div>
   )
 }

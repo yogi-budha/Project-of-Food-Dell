@@ -10,7 +10,9 @@ const cartMidleware = (req,res,next)=>{
     if(!token){
         res.json({"success":false,message:"token is misssing"})
     }else{
-       const decode_data =  jwt.verify(token,process.env.JWT_SECREATKEY)
+       const decode_data =  jwt.verify(token,"yogesh")
+
+    //    console.log(token)
 
      req.body.userId = decode_data.userId
      next()
