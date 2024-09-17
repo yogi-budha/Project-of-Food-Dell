@@ -102,4 +102,31 @@ const userOrders = async (req,res)=>{
 
 }
 
-export {placeOrdercontroller,verifyOrder,userOrders}
+const orderitem = async (req,res)=>{
+
+    try {
+          const orders = await placeOrderModel.find({})
+
+    res.status(200).json({success:true,orders})
+    } catch (error) {
+
+        res.status(400).json({success:false,message:"error"})
+        
+    }
+  
+}
+
+const status = async (req,res)=>{
+    try {
+        
+        const statusval = await placeOrderModel.findByIdAndUpdate(req.body.userId,{status:req.body.state})
+
+        res.status(200).json({success:true,message:"updated successfully",statusval})
+    } catch (error) {
+
+        res.status(400).json({success:false,message:"error on status field"})
+        
+    }
+}
+
+export {placeOrdercontroller,verifyOrder,userOrders,orderitem,status}
