@@ -5,7 +5,10 @@ import userModel from "../models/userModel.js";
 const addCartItem = async (req, res) => {
   const data = await userModel.findOne({ _id: req.body.userId });
 
+  console.log(data)
+
   const cartData = await data.card;
+
   if (!cartData[req.body.itemId]) {
     cartData[req.body.itemId] = 1;
   } else {

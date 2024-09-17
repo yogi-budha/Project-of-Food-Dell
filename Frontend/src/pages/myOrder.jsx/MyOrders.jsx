@@ -35,12 +35,12 @@ console.log(token)
         }
     },[token])
   return (
-    <div>
+    <div className='main'>
 
         {
             data.map((value)=>(
                 <>
-                <div>
+                <div className='container'>
 
                 <img src={parcelbox} alt="" />
 
@@ -52,14 +52,15 @@ console.log(token)
                   ))}  
                 </div>
                   <div>
-                <p>RS.{getTotalCartAmount()}</p>
+                <p>Price: RS.{value.amount}</p>
                   </div>
                   <div>
             <p>items:{value.items.length}</p>
             <p>&#x25cf;<span>{value.status}</span></p>
                   </div>
-                  <button>Track order</button>
+                  <button onClick={()=>fetchOrder()}>Track order</button>
                 </div>
+                <hr />
 
                 </>
             ))

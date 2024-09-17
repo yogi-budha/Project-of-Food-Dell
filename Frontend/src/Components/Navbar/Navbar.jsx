@@ -7,6 +7,7 @@ import profile_icon from '../../assets/profile_icon.png'
 import logout_icon from '../../assets/logout_icon.png'
 import bag_icon from '../../assets/bag_icon.png'
 import icon1 from '../../assets/foodExpress.jpg'
+import myOrder from '../../assets/unnamed.png'
 
 const Navbar = ({ setShowLogin }) => {
   const navigate = useNavigate()
@@ -57,6 +58,13 @@ const Navbar = ({ setShowLogin }) => {
         >
           contact us
         </a>
+      <Link
+          to="/myorders"
+          className='myOrderdiv'
+        >
+          {/* <img className='myOrderimg' src={myOrder} alt="" /> */}
+          My Order
+        </Link>
       </ul>
       <div className="navbar-right">
        

@@ -32,7 +32,7 @@ axios.post(`${url}/api/order/status`,{userId,state:e.target.value}).then((res)=>
 
   return (
     <div className=" flex flex-col gap-5">
-      <h1>Order Page</h1>
+      <h1 className="text-xl mb-10 font-semibold mt-10">Order Page</h1>
       {orderData.map((orderval)=>(
         
  <>

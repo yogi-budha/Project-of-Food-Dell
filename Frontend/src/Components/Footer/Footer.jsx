@@ -31,7 +31,7 @@ function Footer() {
                 <h2>GET IN TOUCH</h2>
                 <ul>
                     <li>984799999</li>
-                    <li>contact@tomato.com</li>
+                    <li>contact@nepalfoodexpress.com</li>
                 </ul>
             </div>
         </div>

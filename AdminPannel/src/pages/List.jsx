@@ -33,7 +33,7 @@ useEffect(()=>{
 },[])
   return (
     <div className="w-[80%] px-4 pt-9 ">
-      <h1>All Food List</h1>
+      <h1 className="text-xl mb-1 font-semibold ">All Food List</h1>
 
       
       <div className="  flex justify-between items-center border py-2 px-5">
