@@ -64,13 +64,13 @@ const Cart = () => {
 
           <button onClick={()=>navigate("/Order")}>PROCEED TO CHECKOUT</button>
         </div>
-        <div className="right">
+        {/* <div className="right">
           <p>If you have a promo code.Enter it here</p>
           <div className="input-item">
             <input type="text" placeholder="promo code" />
             <button>Submit</button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

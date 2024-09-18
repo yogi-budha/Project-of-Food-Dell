@@ -16,7 +16,7 @@ const PlaceOrder = () => {
     city: "",
     state: "",
     zipCode: "",
-    country: "",
+    // country: "",
     phone: "",
   });
 
@@ -87,7 +87,7 @@ const PlaceOrder = () => {
           </div>
           <div className="multi-div">
             <input type="text" placeholder="Zip code" onChange={onChangeHandler} value={data.zipCode} name='zipCode' />
-            <input type="text" placeholder="Country" onChange={onChangeHandler} value={data.country} name='country' />
+            {/* <input type="text" placeholder="Country" onChange={onChangeHandler} value={data.country} name='country' /> */}
           </div>
           <input type="text" placeholder="Phone" onChange={onChangeHandler} value={data.phone} name='phone'/>
         </div>
