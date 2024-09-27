@@ -31,7 +31,7 @@ const Navbar = ({ setShowLogin }) => {
         >
           home
         </Link>
-        <a
+        {/* <a
           href="#explore-menu"
           onClick={() => {
             setmenu('menu');
@@ -48,7 +48,7 @@ const Navbar = ({ setShowLogin }) => {
           className={menu == 'mobile-app' ? 'active' : ''}
         >
           mobile-app
-        </a>
+        </a> */}
         <a
           href="#footer"
           onClick={() => {

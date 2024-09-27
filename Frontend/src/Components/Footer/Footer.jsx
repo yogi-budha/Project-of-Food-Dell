@@ -11,7 +11,7 @@ function Footer() {
 
             
             <img className='firstimg' src={logo3} alt="" />
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae dolores quasi doloribus ad, recusandae expedita ipsam quaerat molestiae neque tempora quidem praesentium dolor accusantium maxime aliquam sapiente ipsa et adipisci? Inventore excepturi hic dignissimos?</p>
+            <p>Nepal Food Express - Your Gateway to Flavors of Nepal</p>
             <div className='icon'>
                 <img src={assets.facebook_icon} alt="" />
                 <img src={assets.linkedin_icon} alt="" />

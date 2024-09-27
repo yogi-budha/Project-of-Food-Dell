@@ -5,6 +5,10 @@ import User from '../models/userModel.js'
 const stripe = new Stripe('sk_test_51Puv2XRqtSXxmFegogzSPLrty9PD2IGuJpuW57mFDjfx4j7u487M7f26f6qILx1CEZXIkpa0kmtXqmozSlk4W5vo00MgGrTN3O'); 
 const placeOrdercontroller = async (req,res)=>{ 
 
+
+
+
+
     const frontend_url = "http://localhost:5173"
 
     try {
@@ -25,9 +29,9 @@ const placeOrdercontroller = async (req,res)=>{
                 product_data:{
                     name:item.name
                 },
-                unit_amount : item.price *100
+                unit_amount : item.price *10
             },
-            quantity:item.quantity * 100
+            quantity:item.quantity 
         }))
 
         line_items.push({
@@ -36,7 +40,7 @@ const placeOrdercontroller = async (req,res)=>{
                 product_data:{
                     name:'Delivery Charges'
                 },
-                unit_amount: 2 * 100
+                unit_amount: 2 * 10
             },
             quantity:1
         })
@@ -59,6 +63,8 @@ const placeOrdercontroller = async (req,res)=>{
     }
 
 }
+
+
 
 
 const verifyOrder = async (req,res)=>{
