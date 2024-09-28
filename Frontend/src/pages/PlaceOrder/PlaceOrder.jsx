@@ -36,6 +36,7 @@ const PlaceOrder = () => {
       if(cartItem[item._id]>0){
 
         let iteminfo = item;
+        
         iteminfo["quantity"] = cartItem[item._id]
 
         orderItems.push(iteminfo)
@@ -50,7 +51,7 @@ const PlaceOrder = () => {
     let orderData = {
       address:data,
       items:orderItems,
-      amount:getTotalCartAmount()+2
+      amount:(getTotalCartAmount() + 20)
     }
 
     await axios.post(mainurl+"/api/order/place",orderData,{headers:{token}}).then((res)=>{

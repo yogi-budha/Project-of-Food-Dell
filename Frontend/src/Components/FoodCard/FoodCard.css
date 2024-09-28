@@ -22,6 +22,8 @@
     display: block;
 }
 
+
+
 .upper-info{
     margin:  10px 0;
     
@@ -80,6 +82,12 @@ h2{
 
 .food-item-image{
     position: relative;
+    /* heigh; */
+}
+
+.food-item-image .imagevalcard{
+    width: 100%;
+    height: 160px;
 }
 
 

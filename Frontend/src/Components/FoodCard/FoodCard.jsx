@@ -9,7 +9,7 @@ const FoodCard = ({ id, name, price, image, catagory, description }) => {
     <>
       <div key={id} className="food-card-container">
         <div className="food-item-image">
-          <img src={`${mainurl}/image/${image}`} alt="" />
+          <img className='imagevalcard' src={`${mainurl}/image/${image}`} alt="" />
           <div className="icon-img">
             {!cartItem[id] ? (
               <div className="icon-white">
