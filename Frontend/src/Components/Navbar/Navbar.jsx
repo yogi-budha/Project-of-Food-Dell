@@ -17,7 +17,7 @@ const Navbar = ({ setShowLogin }) => {
     setToken("")
     navigate("/")
   }
-  const [menu, setmenu] = useState('home');
+  const [menu, setmenu] = useState('Home');
   return (
     <div className="navbar">
     <Link to='/'> <img src={icon1} alt="" className="logo" /></Link> 
@@ -25,9 +25,9 @@ const Navbar = ({ setShowLogin }) => {
         <Link
           to="/"
           onClick={() => {
-            setmenu('home');
+            setmenu('Home');
           }}
-          className={menu == 'home' ? 'active' : ''}
+          className={menu == 'Home' ? 'active' : ''}
         >
           home
         </Link>
