@@ -29,7 +29,7 @@ const Navbar = ({ setShowLogin }) => {
           }}
           className={menu == 'Home' ? 'active' : ''}
         >
-          home
+          Home
         </Link>
         {/* <a
           href="#explore-menu"
