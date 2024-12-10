@@ -8,7 +8,7 @@ function Order() {
   const [orderData,setOrderData] = useState([])
   const [status,setStatus] = useState("")
   
-  const url  = import.meta.env.VITE_API_URL
+  const url  = "https://project-of-food-dell.onrender.com"
 
   async function fetchitem(){
     axios.get(`${url}/api/order/list`).then((res)=>{

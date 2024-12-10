@@ -16,7 +16,7 @@ function Add() {
 
    async function submitHandler(e){
         e.preventDefault()
-        const url = import.meta.env.VITE_API_URL
+        const url ="https://project-of-food-dell.onrender.com"
        
         const formData = new FormData()
 

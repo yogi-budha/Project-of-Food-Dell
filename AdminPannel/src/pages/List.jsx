@@ -5,8 +5,7 @@ import { toast } from "react-toastify"
 
 function List() {
 
-  const url  = import.meta.env.VITE_API_URL
-
+  const url  = "https://project-of-food-dell.onrender.com"
   const [list , setList] = useState([])
 
 async function fetchitem(){
