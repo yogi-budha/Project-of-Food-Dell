@@ -1,7 +1,4 @@
-
-
 .food-card-container {
-    
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -22,51 +19,47 @@
     display: block;
 }
 
-
-
-.upper-info{
-    margin:  10px 0;
-    
+.upper-info {
+    margin: 10px 0;
     display: flex;
     gap: 9px;
     align-items: center;
     justify-content: space-between;
 }
 
-.upper-info p{
+.upper-info p {
     font-size: 20px;
     font-weight: 500;
 }
 
-.upper-info img{
+.upper-info img {
     width: 70px;
 }
 
-.lower-info p{
-    color:#676767;
+.lower-info p {
+    color: #676767;
     font-size: 12px;
 }
 
-h2{
+h2 {
     color: tomato;
     margin-top: 8px;
 }
 
-.lower-info{
+.lower-info {
     display: flex;
     flex-direction: column;
     align-items: start;
-
 }
 
-.icon-white img{
+.icon-white img {
     width: 50px;
-     bottom: 10px;
+    bottom: 10px;
     right: 11px;
     position: absolute;
 }
 
-.add-remove-item{
+.add-remove-item {
     position: absolute;
     display: flex;
     align-items: center;
@@ -76,18 +69,110 @@ h2{
     color: black;
     font-weight: 700;
 }
-.add-remove-item img{
+
+.add-remove-item img {
     width: 35px;
 }
 
-.food-item-image{
+.food-item-image {
     position: relative;
-    /* heigh; */
 }
 
-.food-item-image .imagevalcard{
+.food-item-image .imagevalcard {
     width: 100%;
     height: 160px;
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .upper-info p {
+        font-size: 18px;
+    }
 
+    .upper-info img {
+        width: 60px;
+    }
+
+    .lower-info p {
+        font-size: 11px;
+    }
+
+    .icon-white img {
+        width: 45px;
+    }
+
+    .add-remove-item img {
+        width: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .food-card-container {
+        padding: 15px;
+    }
+
+    .upper-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .upper-info p {
+        font-size: 16px;
+    }
+
+    .upper-info img {
+        width: 50px;
+    }
+
+    .lower-info p {
+        font-size: 10px;
+    }
+
+    .icon-white img {
+        width: 40px;
+    }
+
+    .add-remove-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .add-remove-item img {
+        width: 25px;
+    }
+
+    .food-item-image .imagevalcard {
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .food-card-container {
+        padding: 10px;
+    }
+
+    .upper-info p {
+        font-size: 14px;
+    }
+
+    .upper-info img {
+        width: 40px;
+    }
+
+    .lower-info p {
+        font-size: 9px;
+    }
+
+    .icon-white img {
+        width: 35px;
+    }
+
+    .add-remove-item img {
+        width: 20px;
+    }
+
+    .food-item-image .imagevalcard {
+        height: 120px;
+    }
+}
