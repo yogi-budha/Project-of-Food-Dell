@@ -8,7 +8,7 @@ function Order() {
   const [orderData,setOrderData] = useState([])
   const [status,setStatus] = useState("")
   
-  const url  = 'http://localhost:4000'
+  const url  = import.meta.env.VITE_API_URL
 
   async function fetchitem(){
     axios.get(`${url}/api/order/list`).then((res)=>{

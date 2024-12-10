@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 
 function List() {
 
-  const url  = 'http://localhost:4000'
+  const url  = import.meta.env.VITE_API_URL
 
   const [list , setList] = useState([])
 
@@ -19,7 +19,7 @@ async function fetchitem(){
  async function removeItem(foodId){
 
 
-  await axios.post("http://localhost:4000/api/food/food",{id:foodId}).then((res)=>{
+  await axios.post(url+"/api/food/food",{id:foodId}).then((res)=>{
    
     toast.success("successuflly deleted")
     fetchitem()
