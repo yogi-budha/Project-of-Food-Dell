@@ -9,7 +9,7 @@ export  const StoreContext = createContext(null);
     const [token,setToken] = useState("")
     const [food_list,setFood_list] = useState([])
 
-    const mainurl = 'http://localhost:4000'
+    const mainurl = import.meta.env.VITE_API_URL
 
     const addToCart = async (itemId)=>{
         if(!cartItem[itemId]){

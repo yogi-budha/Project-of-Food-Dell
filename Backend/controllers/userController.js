@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 
 
 function jwtToken(id){
- return   jwt.sign({userId:id},"yogesh")
+ return   jwt.sign({userId:id},process.env.secreat_key)
 }
 
 // Login User

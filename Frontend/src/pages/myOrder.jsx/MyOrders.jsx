@@ -10,6 +10,7 @@ const MyOrders = () => {
     const {mainurl,token,getTotalCartAmount} = useContext(StoreContext)
 
     const [data,setData] = useState([])
+    
 
     const fetchOrder = async ()=>{
         const response = await axios.post(mainurl+'/api/order/userorders',{},{
@@ -20,15 +21,11 @@ const MyOrders = () => {
 
         setData(response.data.orders)
 
-        console.log(response)
+        console.log(response.data)
 
+console.log(response.data.orders[0].status)
 
     }
-
-    console.log(data)
-
-
-console.log(token)
 
     useEffect(()=>{
         if(token){

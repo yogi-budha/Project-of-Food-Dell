@@ -1,4 +1,4 @@
-// require('dotenv').config();
+
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -16,7 +16,7 @@ import placeOrderRoutes from './routes/placeOrderRoute.js';
 
 // app config
 const app = express()
-const port = 4000
+const ports = process.env.port || 4000
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -41,7 +41,9 @@ app.get('/',(req,res)=>{
     res.send("Api is currently working")
 })
 
-app.listen(port,()=>{
-    console.log(`Server started on http://localhost:${port}`)
+
+// listen the server
+app.listen(ports,()=>{
+    console.log(`Server started on http://localhost:${ports}`)
 })
 

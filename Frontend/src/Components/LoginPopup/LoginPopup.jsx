@@ -19,7 +19,7 @@ function LoginPopup({setShowLogin}) {
   async function submitHandler(e){
     e.preventDefault()
 
-    let url = 'http://localhost:4000'
+    let url = import.meta.env.VITE_API_URL
 
     let newurl = url
 

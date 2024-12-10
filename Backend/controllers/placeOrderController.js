@@ -1,68 +1,69 @@
-import { placeOrderModel } from '../models/orderModel.js'
-import Stripe from 'stripe'
-import User from '../models/userModel.js'
+import { placeOrderModel } from '../models/orderModel.js';
+import Stripe from 'stripe';
+import User from '../models/userModel.js';
 
-const stripe = new Stripe('sk_test_51Puv2XRqtSXxmFegogzSPLrty9PD2IGuJpuW57mFDjfx4j7u487M7f26f6qILx1CEZXIkpa0kmtXqmozSlk4W5vo00MgGrTN3O'); 
-const placeOrdercontroller = async (req,res)=>{ 
+// Initialize Stripe with the API key from environment variables
+const stripe = new Stripe("sk_test_51Puv2XRqtSXxmFegogzSPLrty9PD2IGuJpuW57mFDjfx4j7u487M7f26f6qILx1CEZXIkpa0kmtXqmozSlk4W5vo00MgGrTN3O");
 
-
-
-
-
-    const frontend_url = "http://localhost:5173"
+const placeOrderController = async (req, res) => {
+    const frontend_url = process.env.FRONTEND_URL;
 
     try {
+        const { userId, amount, address, items, status } = req.body;
 
-        const {userId,amount,address,items,status} =  req.body
-        
-        const newplaceOrder = new placeOrderModel({
-            userId,amount,address,items,status
-        })
+        // Create a new order
+        const newPlaceOrder = new placeOrderModel({
+            userId,
+            amount,
+            address,
+            items,
+            status
+        });
 
-        await newplaceOrder.save()
+        await newPlaceOrder.save();
 
-        await User.findByIdAndUpdate(req.body.userId,{cardData:{}})
+        // Update user data
+        await User.findByIdAndUpdate(userId, { cardData: {} });
 
-        const line_items = req.body.items.map((item)=>({
+        // Prepare line items for Stripe checkout
+        const line_items = items.map((item) => ({
             price_data: {
-                currency:"inr",
-                product_data:{
-                    name:item.name
+                currency: "inr",
+                product_data: {
+                    name: item.name
                 },
-                unit_amount : (item.price *100) 
+                unit_amount: item.price * 100 // Convert to smallest currency unit
             },
-            quantity:item.quantity 
-        }))
+            quantity: item.quantity
+        }));
 
+        // Add delivery charges
         line_items.push({
-            price_data:{
-                currency:"inr",
-                product_data:{
-                    name:'Delivery Charges'
+            price_data: {
+                currency: "inr",
+                product_data: {
+                    name: 'Delivery Charges'
                 },
-                unit_amount: 2 * 1000
+                unit_amount: 2000 // Delivery charge in smallest currency unit
             },
-            quantity:1
-        })
+            quantity: 1
+        });
 
+        // Create a Stripe checkout session
         const session = await stripe.checkout.sessions.create({
-            line_items:line_items,
-            mode:"payment",
-            success_url:`${frontend_url}/verify?success=true&orderId=${newplaceOrder._id}`,
-            cancel_url:`${frontend_url}/verify?success=false&orderId=${newplaceOrder._id}`,
+            line_items: line_items,
+            mode: "payment",
+            success_url: `${frontend_url}/verify?success=true&orderId=${newPlaceOrder._id}`,
+            cancel_url: `${frontend_url}/verify?success=false&orderId=${newPlaceOrder._id}`,
+        });
 
-        })
-
-        res.json({success:true,session_url:session.url})
-        
+        res.json({ success: true, session_url: session.url });
     } catch (error) {
-        console.log(error)
-
-        res.status(400).json({success:false,message:"internal server error"})
-        
+        console.log(error);
+        res.status(400).json({ success: false, message: "Internal server error" });
     }
+};
 
-}
 
 
 
@@ -135,4 +136,4 @@ const status = async (req,res)=>{
     }
 }
 
-export {placeOrdercontroller,verifyOrder,userOrders,orderitem,status}
+export {placeOrderController,verifyOrder,userOrders,orderitem,status}
